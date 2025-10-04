@@ -1,6 +1,8 @@
 from utils import *
 import pytz
 
+st.write("Binance URL:", BINANCE_BRL_ENDPOINT_URL)
+
 st.markdown("""
     <style>
         /* Remove margens laterais padrão do Streamlit */
@@ -125,3 +127,4 @@ else:
         ).resolve_scale(y='independent')  # cada par pode ter escala de volume própria
 
         st.altair_chart(chart, use_container_width=True)
+
