@@ -152,7 +152,6 @@ def get_volume_binance_30m(candlesloockaback:int,basepair,interval):
         response = requests.get(url, params=params)
 
         if response.status_code != 200:
-            st.warning({response.status_code}, {response.text)
             raise Exception(f"Erro na API: {response.status_code}, {response.text}")
 
         data = response.json()
@@ -374,6 +373,7 @@ def authenticator (user,password):
         return True
     else:
         return False
+
 
 
 
