@@ -1,7 +1,6 @@
 from utils import *
 import pytz
 
-st.write("Binance URL:", BINANCE_BRL_ENDPOINT_URL)
 
 st.markdown("""
     <style>
