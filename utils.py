@@ -172,6 +172,7 @@ def get_volume_binance_30m(candlesloockaback:int,basepair,interval):
         return newlist
 
     except Exception as erro:
+        print(erro)
         return []
 
 def get_volume_foxbit_30m(candlesloockaback:int,basepair,interval):
@@ -373,6 +374,7 @@ def authenticator (user,password):
         return True
     else:
         return False
+
 
 
 
