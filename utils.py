@@ -218,7 +218,7 @@ def get_volume_foxbit_30m(candlesloockaback:int,basepair,interval):
                 "exchange" : "(BRL) Foxbit",
                 "pair":basepair_formatted[:-3],
                 "timestamp" : datetime.datetime.utcfromtimestamp(int(v[0])/1000),
-                "volume" : v["volume"][v]
+                "volume" : float(v[5])
 
             }
             newlist.append(register)
@@ -374,6 +374,7 @@ def authenticator (user,password):
         return True
     else:
         return False
+
 
 
 
