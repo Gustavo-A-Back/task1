@@ -35,6 +35,7 @@ tz_options = {
     "Canada - Central (Winnipeg)": "America/Winnipeg",
     "Canada - Mountain (Edmonton)": "America/Edmonton",
     "Canada - Pacific (Vancouver)": "America/Vancouver",
+    "Switzerland (Zurich)": "Europe/Zurich",
     "UTC (Universal Coordinated Time)": "UTC"
 }
 
@@ -69,7 +70,7 @@ if not st.session_state.logged_in:
 else:
 
     #ajust timezone
-    tz_name = st.sidebar.selectbox("Select the time zone you are currently in:", list(tz_options.keys()))
+    tz_name = st.sidebar.selectbox("Escolha o fuso horário:", list(tz_options.keys()))
     tz = pytz.timezone(tz_options[tz_name])
 
     #call func
@@ -95,7 +96,7 @@ else:
 
 
     #exchanges
-    available_exchanges=pairs_selected_filter["exchange"].unique()
+    available_exchanges=sorted(pairs_selected_filter["exchange"].unique())
     exchanges_list = st.sidebar.multiselect("Select one or more exchanges",options=available_exchanges,default=[])
     exchanges_selected_filter = pairs_selected_filter[pairs_selected_filter["exchange"].isin(exchanges_list)].copy()
 
@@ -126,5 +127,4 @@ else:
         ).resolve_scale(y='independent')  # cada par pode ter escala de volume própria
 
         st.altair_chart(chart, use_container_width=True)
-
 
