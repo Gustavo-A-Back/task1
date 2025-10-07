@@ -470,6 +470,7 @@ def get_volume_ripio_30m(candleslookback, basepair, interval):
 
             response = requests.get(url, params=params)
             if response.status_code != 200:
+                print({response.status_code}, {response.text})
                 raise Exception(f"Erro na API Ripio: {response.status_code}, {response.text}")
 
             j = response.json()
@@ -511,6 +512,7 @@ def get_volume_ripio_30m(candleslookback, basepair, interval):
         return result
 
     except Exception as e:
+        print({response.status_code}, {response.text})
         return []
 
 def ripio_aggregate_trades_to_candles(basepair, trades, interval="30m"):
@@ -593,5 +595,6 @@ def authenticator (user,password):
         return True
     else:
         return False
+
 
 
