@@ -469,8 +469,8 @@ def get_volume_ripio_30m(candleslookback, basepair, interval):
                 params["c"] = cursor
 
             response = requests.get(url, params=params)
+            st.write(response.status_code)
             if response.status_code != 200:
-                st.write(response.status_code)
                 raise Exception(f"Erro na API Ripio: {response.status_code}, {response.text}")
 
             j = response.json()
@@ -594,6 +594,7 @@ def authenticator (user,password):
         return True
     else:
         return False
+
 
 
 
